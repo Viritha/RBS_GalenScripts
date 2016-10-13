@@ -1,0 +1,439 @@
+
+@rule if %{objectName} is visible
+    @if ${isVisible(objectName)}
+        @ruleBody
+		
+@objects
+    socialBarBox                                .social-bar.js-social-bar
+	socialBarHeader                             .social-bar__share
+	socialbar									.social-bar.js-social-bar ul
+	socialbarlist-*								.social-bar__list
+	HeroShelf									.shelf.shelf--hero 
+	GTheromask									.hero__mask.shelf--hero__mask2
+	Normalmask									.hero__mask.shelf--hero__mask1
+	heroimage									.hero__mask.shelf--hero__mask1 img	
+	herocopy									.hero__copy
+	h2											.hero__copy h2
+	h3											.hero__copy h3
+	cta-*										.hero__copy .cta.cta--branded.cta--l  a
+	ghosttext 									.hero__footline p
+	footline									.hero__footline
+	canvasShelf-*                               .shelf.theme--light-blue.canvas-shelf
+	insideCanvasShelf                           .shelf.theme--light-blue.shelf--first.canvas-shelf .shelf__inner.shelf--padded
+    canvasGrid-*                                .shelf.theme--light-blue.canvas-shelf .shelf__inner.shelf--padded .grid__item.desk--one-third
+    canvasImage-*                               .shelf.theme--light-blue.shelf--first.canvas-shelf .shelf__inner.shelf--padded .image
+    canvasH4-*                                  .shelf.theme--light-blue.shelf--first.canvas-shelf .shelf__inner.shelf--padded .comp-rich-text h4
+    canvasP-*                                   .shelf.theme--light-blue.shelf--first.canvas-shelf .shelf__inner.shelf--padded .comp-rich-text p
+    canvasPSpan                                 .shelf.theme--light-blue.shelf--first.canvas-shelf .shelf__inner.shelf--padded .fs-20
+	CTA-*                                       .shelf.theme--light-blue.shelf--first.canvas-shelf .shelf__inner.shelf--padded .cta.cta--m a
+	largeCTA                                    .shelf.theme--light-blue.shelf--first.canvas-shelf .shelf__inner.shelf--padded .cta.cta--branded.cta--l  a
+	whiteCanvasH3-*                             .shelf.theme--light-blue.canvas-shelf .grid__item.desk--one-third h3
+    whiteCanvasrte-*                            .shelf.theme--light-blue.canvas-shelf .grid__item.desk--one-third .cta.cta--s
+    whiteCanvasrtetext-* 	                    .shelf.theme--light-blue.canvas-shelf .grid__item.desk--one-third .cta.cta--s a
+	singleTeaserShelf                           .shelf.theme--white.single-article
+	singleTeaserGrid1                           .grid__item.palm--one-half.desk--one-third.teaser-image
+	singleTeaserGrid1Image                      .grid__item.palm--one-half.desk--one-third.teaser-image img
+	singleTeaserGrid2                           .grid__item.desk--two-third
+	singleTeaserGrid2Header                     .shelf.theme--white.single-article .header-group
+	singleTeaserGrid2HeaderSpan                 .shelf.theme--white.single-article .header-group__headline
+	singleTeaserGrid2Text                       .shelf.theme--white.single-article .fs-14
+	singleTeaserGrid2Cta                        .shelf.theme--white.single-article .cta.cta--m a
+	blueCanvas                                  .cq-dd-paragraph .shelf.theme--light-blue.canvas-shelf
+    blueCanvasGrid1                             .cq-dd-paragraph .shelf.theme--light-blue.canvas-shelf .grid__item.desk--one-third
+    blueCanvasGrid1Image                        .cq-dd-paragraph .shelf.theme--light-blue.canvas-shelf .grid__item.desk--one-third .image
+    blueCanvasGrid2                             .cq-dd-paragraph .shelf.theme--light-blue.canvas-shelf .grid__item.desk--two-thirds
+    blueCanvasGrid2Text-*                       .cq-dd-paragraph .shelf.theme--light-blue.canvas-shelf .grid__item.desk--two-thirds .comp-rich-text .body-copy
+    footer                                      .global-footer
+    footerItems-*                               .global-footer li
+    locator                                     .icon--branch-locator  	
+    services                                    .icon--service-status 	
+	security                                    .icon--security-centre
+	aboutUs                                     .icon--about-us
+	career                                      .icon--career
+	linkText-*                                    .linkText
+	
+= HeroShelf with Ghost Text =
+    socialBarBox:
+	    css padding-top is "14px"
+		css padding-bottom is "16px"
+		css padding-left is "8px"
+		width 320px
+		height 66px
+		css border-bottom-width is "1px"
+		css margin-top is "1px"
+		css margin-right is "1px"
+		css background-color is "rgba(10, 47, 100, 1)"
+		
+	socialBarHeader:
+	    css font-family contains "RNHouseSansRegular"
+		css font-size is "18px"
+		css line-height is "28.8px"
+		css color is "rgba(255, 255, 255, 1)"
+    
+	| if socialbar is visible
+		socialbar:
+			width 140px
+			height 33px
+			css margin-top is "2px"
+
+	@for [1-4] as index		
+		| if socialbarlist-${index} is visible	
+			socialbarlist-${index}:
+				css margin-right is "5.4px"
+				width 31px
+				height 33px
+				css background-color is "rgba(255, 255, 255, 1)"
+	HeroShelf:
+		width 320px
+		height 449px
+		css padding-bottom is "22px"
+		
+	
+	herocopy:
+		width 320px
+		height 262px
+		
+	h2:
+		css padding-top is "21px"
+		css padding-left is "16px"
+		css margin-right is "16px"
+		css font-family contains "RNHouseSansBold"
+		css font-size is "32px"
+		css line-height is "36px"
+		css color is "rgba(0, 146, 221, 1)"
+		
+	h3:
+		css font-family contains "RNHouseSansRegular"
+		css font-size is "22px"
+		css line-height is "26px"
+		css color is "rgba(10, 47, 100, 1)"
+		css padding-top is "3px"
+		css padding-left is "16px"
+		css padding-bottom is "2px"
+		css padding-right is "16px"
+		near h2 0px bottom
+		
+	cta-1:
+		css padding-top is "13px"
+		css padding-bottom is "9px"
+		css padding-right is "18px"
+		css padding-left is "20px"
+		css margin-bottom is "11px"
+		css margin-top is "2px"
+		css border-top-width is "1px"
+		css font-family contains "RNHouseSansBold"
+		css font-size is "18px"
+		css line-height is "24px"
+		css color is "rgba(255, 255, 255, 1)"
+		css background-color is "rgba(0, 168, 180, 1)"
+		css border-top-color is "rgba(67, 201, 210, 1)"
+		css border-right-color is "rgba(255, 255, 255, 1)"
+		css border-bottom-color is "rgba(255, 255, 255, 1)"
+		css border-left-color is "rgba(255, 255, 255, 1)"
+		css border-top-left-radius is "5.63333px"
+		css border-top-right-radius is "5.63333px"
+		css border-bottom-left-radius is "5.63333px"
+		css border-bottom-right-radius is "5.63333px"
+		near h3 14px bottom
+		
+	| if cta-2 is visible
+	    cta-2:
+			css font-family contains "RNHouseSansRegular"
+			css font-size is "18px"
+			css line-height is "22px"
+			css color is "rgba(177, 5, 157, 1)"
+			css padding-right is "42px"		
+
+	| if ghosttext is visible
+		ghosttext:
+			width 288px
+			height 140px
+			css font-family contains "RNHouseSansRegular"
+			css font-size is "14px"
+			css line-height is "20px"
+			css color is "rgba(10, 47, 100, 1)"
+			
+	| if footline is visible
+		footline:
+			css margin-top is "20px"
+			css margin-bottom is "5px"
+			width 320px
+			height 140px
+			css padding-left is "16px"
+			css padding-right is "16px"
+
+=Canvas Shelf=
+    canvasShelf-1:
+	    css padding-top is "21px"
+		css padding-bottom is "32px"
+		css background-color is "rgba(231, 229, 223, 1)"
+		
+	insideCanvasShelf:
+	    css padding-left is "16px"
+		css padding-right is "16px"
+		
+	canvasGrid-1:
+	    width 288px
+		height 448px
+		
+	canvasGrid-2:
+	    width 288px
+		height 360px
+		near canvasGrid-1 0px bottom
+		
+	canvasGrid-3:
+	    width 288px
+		height 288px
+		near canvasGrid-2 0px bottom
+		
+	@for [1-3] as index
+		canvasImage-${index}:
+		    width 288px
+			height 162px
+			css margin-bottom is "13px"
+	
+    @for [1-2] as index	
+	    canvasH4-${index}:
+		    width 288px
+			height 54px
+			css padding-bottom is "10px"
+			css font-family contains "RNHouseSansBold"
+			css font-size is "18px"
+			css line-height is "22px"
+			css color is "rgba(10, 47, 100, 1)"
+			
+	canvasP-3:
+	    css font-family contains "RNHouseSansRegular"
+		css font-size is "16px"
+		css line-height is "22px"
+		css color is "rgba(10, 47, 100, 1)"
+		width 288px
+		height 68px
+		css padding-bottom is "16px"
+		
+	canvasPSpan:
+	    width 202px
+		height 49px
+		css font-family contains "RNHouseSansRegular"
+		css font-size is "22px"
+		css line-height is "26px"
+		css color is "rgba(10, 47, 100, 1)"
+	
+	@for [1-2,4,5,6]
+	    canvasP-${index}:
+		    width 288px
+			css padding-bottom is "16px"
+			css font-family contains "RNHouseSansRegular"
+			css font-size is "16px"
+			css line-height is "22px"
+			css color is "rgba(10, 47, 100, 1)"
+			
+	@for [2,6] as index
+	    canvasP-${index}:
+		    near canvasP-${index-1} 0px bottom
+			
+	canvasP-1:
+	    near canvasH4-1 0px bottom
+		
+	canvasP-5:
+	    near canvasH4-2 0px bottom
+		
+	canvasP-4:
+	    near canvasP-3 0px bottom
+	
+	@for [1-2,4] as index
+	    CTA-${index}:
+		    css margin-top is "16px"
+			css margin-bottom is "16px"
+			css padding-right is "12px"
+			css font-family contains "RNHouseSansRegular"
+			css font-size is "16px"
+			css line-height is "16px"
+			css color is "rgba(0, 146, 221, 1)"
+			
+	CTA-1:
+	    inside canvasGrid-1 0px left
+		
+	CTA-2:
+	    inside canvasGrid-2 0px left
+			
+			
+	largeCTA:
+	    css margin-bottom is "11px"
+		css margin-top is "2px"
+		css padding-top is "13px"
+		css padding-bottom is "9px"
+		css padding-left is "20px"
+		css padding-right is "18px"
+		css border-top-width is "1px"
+		css font-family contains "RNHouseSansBold"
+		css font-size is "18px"
+		css line-height is "24px"
+		css color is "rgba(255, 255, 255, 1)"
+		css background-color is "rgba(0, 168, 180, 1)"
+	    
+			
+	CTA-3:
+	    css padding-top is "3px"
+		css padding-bottom is "3px"
+		css padding-right is "42px"
+		width 288px
+		css font-family contains "RNHouseSansRegular"
+		css font-size is "14px"
+		css line-height is "22px"
+		css color is "rgba(177, 5, 157, 1)"
+			
+	canvasShelf-2:
+	    width 320px
+		height 570px
+		css padding-top is "21px"
+		css padding-bottom is "32px"
+		css background-color is "rgba(231, 229, 223, 1)"
+		
+	@for [4-6] as index
+	    canvasGrid-${index}:
+		    width 288px
+						
+	canvasGrid-4:
+	    height 189px
+		
+	canvasGrid-5:
+	    height 164px
+		
+	canvasGrid-6:
+	    height 164px
+		
+	@for [1-3] as index
+	    whiteCanvasH3-${index}:
+		    width 288px
+			height 26px
+			inside canvasGrid-${index+3} 0px left
+			css font-family contains "RNHouseSansBold"
+			css font-size is "22px"
+			css line-height is "26px"
+			css color is "rgba(10, 47, 100, 1)"
+			
+	@for [1-13] as index
+	    whiteCanvasrte-${index}:
+		    width 288px
+			height 25px
+			css font-family contains "Verdana"
+			css font-size is "13px"
+			css line-height is "13px"
+			css color is "rgba(10, 47, 100, 1)"
+	
+	whiteCanvasrte-1:
+	    near whiteCanvasH3-1 38px bottom
+		
+	whiteCanvasrte-6:
+	    near whiteCanvasH3-2 38px bottom
+		
+	whiteCanvasrte-10:
+	    near whiteCanvasH3-3 38px bottom
+	
+    @for [1-13] as index	
+	    whiteCanvasrtetext-${index}:
+		    height 25px
+			css font-family contains "RNHouseSansRegular"
+			css font-size is "14px"
+			css line-height is "25px"
+			css color is "rgba(10, 47, 100, 1)"
+			css padding-right is "32px"
+			
+	singleTeaserShelf:
+	    css padding-bottom is "21px"
+		css padding-top is "21px"
+		width 320px
+		height 473px
+		css background-color is "rgba(255, 255, 255, 1)"
+		
+	singleTeaserGrid1:
+	    width 288px
+		height 208px
+		css padding-top is "24px"
+		css padding-bottom is "18px"
+		
+	singleTeaserGrid1Image:
+	    width 288px
+		height 162px
+				
+	singleTeaserGrid2:
+	    width 288px
+		height 150px
+		
+	singleTeaserGrid2HeaderSpan:
+	    width 288px
+		height 73px
+		css font-family contains "RNHouseSansBold"
+		css font-size is "26px"
+		css line-height is "30px"
+		css color is "rgba(10, 47, 100, 1)"
+		
+	singleTeaserGrid2Header:
+	   	width 288px
+			
+	singleTeaserGrid2Text:
+	    width 278px
+		css font-family contains "RNHouseSansRegular"
+		css font-size is "16px"
+		css line-height is "22px"
+		css color is "rgba(10, 47, 100, 1)"
+		
+	singleTeaserGrid2Cta:
+	    css padding-right is "12px"
+		css margin-bottom is "3px"
+		width 154px
+		height 32px
+		css font-family contains "RNHouseSansRegular"
+		css font-size is "18px"
+		css line-height is "22px"
+		css color is "rgba(177, 5, 157, 1)"
+	
+	@for [1-5] as index
+	    footerItems-${index}:
+		    css padding-bottom is "23px"	
+			css padding-top is "21px"
+			css padding-left is "16px"
+			css padding-right is "16px"
+			height 76px
+			css border-bottom-width is "2px"
+			width 320px
+		    
+		
+	locator:
+	    width 16px
+		height 16px
+		
+	services:
+	    width 16px
+		height 16px
+		
+	security:
+	    width 16px
+		height 16px
+		
+	aboutUs:
+	    width 16px
+		height 16px
+		
+	career:
+	    width 18px
+		height 16px
+		
+	@for [1-5] as index
+	    linkText-${index}:
+			css font-family contains "RNHouseSansRegular"
+			css font-size is "18px"
+			css line-height is "30px"
+			css color is "rgba(255, 255, 255, 1)"
+	    
+		
+	    
+			
+		
+			
+	
+	    
+	    
+
+			
